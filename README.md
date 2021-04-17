@@ -2,7 +2,7 @@
 
 
 ##  Contents
-This repo contains the code for IEEE Access paper "Augmenting Few-shot Learning with Supervised Contrastive Learning". Our method augments the feature extractor using a contrastive learning technique. The main results in the paper can be reproduced with this repo.
+This repo contains the code for IEEE *Access* paper "Augmenting Few-shot Learning with Supervised Contrastive Learning". Our method augments the feature extractor using a contrastive learning technique. The main results in the paper can be reproduced with this repo.
 
 
 ## 1. Preparations
@@ -10,7 +10,7 @@ This repo contains the code for IEEE Access paper "Augmenting Few-shot Learning 
 Follow the instructions 1.1.1 from TIM https://github.com/mboudiaf/TIM to prepare Mini-ImageNet, CUB, and Tiered-ImageNet datasets. Modify the dataset path of the scripts below.
 
 ### 1.2 Preparing the model
-We also provide pre-trained models. Please download the zip file at https://www.dropbox.com/s/ztp0s90jb8hyfxc/checkpoints.tar.gz?dl=0 and untar it.
+We also provide pre-trained models. Please download the tar file at https://www.dropbox.com/s/ztp0s90jb8hyfxc/checkpoints.tar.gz?dl=0 and extract it.
 
 ### 1.3 Preparing the environment
 Please see Dockerfile to prepare the environment.
@@ -37,7 +37,7 @@ python evaluate.py --network resnet18 --dataset mini
 
 | 1 shot/5 shot |   Network   | mini-Imagenet -> CUB  | tiered-Imagenet -> CUB |
 | 	   ---  |      ---    |        ---            |	       ---             |
-| Ours-SPTA     |   Resnet18  |    51.50 / 68.69      |    82.80 / 90.70       |
+| Ours-SPTA     |   Resnet-18 |    51.50 / 68.69      |    82.80 / 90.70       |
 
 We provide domain\_shift.py script to reproduce the results. Please execute following commands.
 ```python
@@ -50,7 +50,7 @@ python domain_shift.py --dataset tiered
 
 | 1 shot/5 shot |  Network    |       10 ways     |       20 ways        |
 | 	   ---  |     ---     |        ---        |	   ---           |
-| Ours-SPTA     |   Resnet18  |   61.15 / 77.12   |     43.29 / 64.22    |
+| Ours-SPTA     |  Resnet-18  |   61.15 / 77.12   |     43.29 / 64.23    |
 
 We provide mini\_10\_20\_ways.py script to reproduce the results. Please execute following commands.
 
@@ -68,12 +68,13 @@ python benchmark.py --setting reduced
 ```
 
 
-## 3. Train models (optional)
+## 3. Train models
 
 We provide pretrain.py script to train the network from scratch.
 ```python
 python pretrain.py --dataset mini --network mobilenet 
 python pretrain.py --dataset mini --network resnet18 --pretraining_batch_size 256
+python pretrain.py --dataset cub --network resnet18
 ```
 
 
