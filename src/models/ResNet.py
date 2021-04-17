@@ -1,6 +1,6 @@
 import torch.nn as nn
 
-__all__ = ['resnet10', 'resnet18', 'resnet34', 'resnet50', 'resnet101',
+__all__ = ['resnet10', 'resnet12', 'resnet18', 'resnet34', 'resnet50', 'resnet101',
            'resnet152']
 
 
@@ -164,6 +164,11 @@ def resnet10(**kwargs):
     model = ResNet(BasicBlock, [1, 1, 1, 1], **kwargs)
     return model
 
+def resnet12(**kwargs):
+    """Constructs a ResNet-12 model.
+    """
+    model = ResNet(BasicBlock, [2, 1, 1, 1], **kwargs)
+    return model
 
 def resnet18(**kwargs):
     """Constructs a ResNet-18 model.

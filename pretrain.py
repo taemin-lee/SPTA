@@ -9,7 +9,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--dataset', type=str, default='mini', choices=[
     'mini', 'tiered', 'cub'])
 parser.add_argument('--network', type=str, default='resnet18', choices=[
-    'mobilenet', 'resnet10', 'resnet18', 'wideres'])
+    'mobilenet', 'resnet10', 'resnet12', 'resnet18', 'wideres'])
 parser.add_argument('--pretraining_batch_size', type=int, default=1024)
 args = parser.parse_args()
 
@@ -35,8 +35,8 @@ global_config["trainer.label_smoothing"]=0.1
 global_config["dataset.num_workers"]=40
 global_config["eval.method"] = "tim_adm"
 
-global_config["ckpt_path"] = "./checkpoints_resnet10_ressume/mini/softmax"
-global_config["pretrain"] = "./checkpoints_rersnet10/mini/softmax"
+global_config["ckpt_path"] = "./checkpoints_resnet18_resume/cub/softmax"
+global_config["pretrain"] = "./checkpoints_resnet18/cub/softmax"
 global_config["model.arch"] = args.network
 global_config["dataset.batch_size"] = 256
 global_config["dataset.pretraining_batch_size"] = args.pretraining_batch_size

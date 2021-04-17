@@ -12,6 +12,7 @@ class get_model:
     def __init__(self, arch, num_classes):
         assert arch == 'mobilenet' or \
                 arch == 'resnet10' or \
+                arch == 'resnet12' or \
                 arch == 'resnet18' or \
                 arch == 'wideres'
         self.arch = arch
@@ -21,6 +22,8 @@ class get_model:
             self.model = mobilenet(num_classes=self.num_classes)
         elif arch == 'resnet10':
             self.model = resnet10(num_classes=self.num_classes)
+        elif arch == 'resnet12':
+            self.model = resnet12(num_classes=self.num_classes)
         elif arch == 'resnet18':
             self.model = resnet18(num_classes=self.num_classes)
         elif arch == 'wideres':

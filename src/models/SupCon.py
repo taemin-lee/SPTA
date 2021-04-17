@@ -4,6 +4,7 @@ import torch.nn.functional as F
 
 model_dict = {
     'resnet10': 512,
+    'resnet12': 512,
     'resnet18': 512,
     'resnet34': 512,
     'resnet50': 2048,
